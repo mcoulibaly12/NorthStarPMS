@@ -1,3 +1,5 @@
+import * as Sentry from '@sentry/react'
+
 import { FatalErrorBoundary, RedwoodProvider } from '@redwoodjs/web'
 import { RedwoodApolloProvider } from '@redwoodjs/web/apollo'
 
@@ -21,4 +23,4 @@ const App = () => (
   </FatalErrorBoundary>
 )
 
-export default App
+export default Sentry.withProfiler(App)
