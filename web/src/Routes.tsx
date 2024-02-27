@@ -69,7 +69,7 @@ const Routes = () => {
         <Route path="/companies/{id:Int}" page={CompanyCompanyPage} name="company" />
         <Route path="/companies" page={CompanyCompaniesPage} name="companies" />
       </Set>
-      <Route path="/home" page={HomePage} name="home" />
+      <Route path="/" page={HomePage} name="home" />
       <Route path="/settings" page={SettingsPage} name="settings" />
       <Route notfound page={NotFoundPage} />
       <Set wrap={DashboardLayout}>
