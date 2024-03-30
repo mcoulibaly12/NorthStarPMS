@@ -35,13 +35,13 @@ describe('certificates', () => {
     const result = await createCertificate({
       input: {
         description: 'String',
-        expirationDate: '2024-02-21T01:10:07.151Z',
+        expirationDate: '2024-03-30T16:11:25.877Z',
         companyId: scenario.certificate.two.companyId,
       },
     })
 
     expect(result.description).toEqual('String')
-    expect(result.expirationDate).toEqual(new Date('2024-02-21T01:10:07.151Z'))
+    expect(result.expirationDate).toEqual(new Date('2024-03-30T16:11:25.877Z'))
     expect(result.companyId).toEqual(scenario.certificate.two.companyId)
   })
 

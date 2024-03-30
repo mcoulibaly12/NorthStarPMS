@@ -5,38 +5,18 @@ export const standard = defineScenario<Prisma.UserCreateArgs>({
   user: {
     one: {
       data: {
-        email: 'String3368443',
+        email: 'String6181285',
+        roles: 'ADMIN',
         hashedPassword: 'String',
         salt: 'String',
-        company: {
-          create: {
-            companyName: 'String',
-            addressOne: 'String',
-            city: 'String',
-            state: 'String',
-            zipCode: 'String',
-            websiteUrl: 'String',
-            phoneNumber: 'String',
-          },
-        },
       },
     },
     two: {
       data: {
-        email: 'String7835647',
+        email: 'String9668563',
+        roles: 'ADMIN',
         hashedPassword: 'String',
         salt: 'String',
-        company: {
-          create: {
-            companyName: 'String',
-            addressOne: 'String',
-            city: 'String',
-            state: 'String',
-            zipCode: 'String',
-            websiteUrl: 'String',
-            phoneNumber: 'String',
-          },
-        },
       },
     },
   },

@@ -45,7 +45,7 @@ describe('customerPointOfContacts', () => {
         input: {
           firstName: 'String',
           lastName: 'String',
-          email: 'String1474457',
+          email: 'String5487819',
           phoneNumber: 'String',
           customerId: scenario.customerPointOfContact.two.customerId,
         },
@@ -53,7 +53,7 @@ describe('customerPointOfContacts', () => {
 
       expect(result.firstName).toEqual('String')
       expect(result.lastName).toEqual('String')
-      expect(result.email).toEqual('String1474457')
+      expect(result.email).toEqual('String5487819')
       expect(result.phoneNumber).toEqual('String')
       expect(result.customerId).toEqual(
         scenario.customerPointOfContact.two.customerId

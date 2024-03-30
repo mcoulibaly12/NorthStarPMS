@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import { useEffect } from 'react'
 
 import {
@@ -16,13 +16,20 @@ import { toast, Toaster } from '@redwoodjs/web/toast'
 import { useAuth } from 'src/auth'
 
 const LoginPage = () => {
-  const { isAuthenticated, logIn } = useAuth()
+  const { isAuthenticated, logIn, currentUser } = useAuth()
+  const [userId, setUserId] = useState(null)
+
+  useEffect(() => {
+    if (currentUser) {
+      setUserId(currentUser.id)
+    }
+  }, [currentUser])
 
   useEffect(() => {
     if (isAuthenticated) {
-      navigate(routes.home())
+      navigate(routes.dashboard({ id: userId }))
     }
-  }, [isAuthenticated])
+  }, [isAuthenticated, userId])
 
   const emailRef = useRef<HTMLInputElement>(null)
   useEffect(() => {

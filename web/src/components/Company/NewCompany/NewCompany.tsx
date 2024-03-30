@@ -1,11 +1,12 @@
+import type { CreateCompanyInput } from 'types/graphql'
+
 import { navigate, routes } from '@redwoodjs/router'
 import { useMutation } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
 
 import CompanyForm from 'src/components/Company/CompanyForm'
-
-import type { CreateCompanyInput } from 'types/graphql'
-
+// TODO: Need to associate at least one user to the new company (will have to do this server side as well)
+// TODO: Associate an admin with the new company, this will be the creator of the company by default
 const CREATE_COMPANY_MUTATION = gql`
   mutation CreateCompanyMutation($input: CreateCompanyInput!) {
     createCompany(input: $input) {
@@ -20,6 +21,7 @@ const NewCompany = () => {
     {
       onCompleted: () => {
         toast.success('Company created')
+        // TODO: route back to the dashbaord
         navigate(routes.companies())
       },
       onError: (error) => {

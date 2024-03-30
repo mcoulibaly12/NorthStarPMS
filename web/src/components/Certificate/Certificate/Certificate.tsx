@@ -1,13 +1,13 @@
+import type {
+  DeleteCertificateMutationVariables,
+  FindCertificateById,
+} from 'types/graphql'
+
 import { Link, routes, navigate } from '@redwoodjs/router'
 import { useMutation } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
 
 import { timeTag } from 'src/lib/formatters'
-
-import type {
-  DeleteCertificateMutationVariables,
-  FindCertificateById,
-} from 'types/graphql'
 
 const DELETE_CERTIFICATE_MUTATION = gql`
   mutation DeleteCertificateMutation($id: Int!) {

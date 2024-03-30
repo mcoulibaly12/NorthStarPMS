@@ -8,7 +8,7 @@ export const standard = defineScenario<Prisma.CustomerPointOfContactCreateArgs>(
         data: {
           firstName: 'String',
           lastName: 'String',
-          email: 'String2685688',
+          email: 'String5723646',
           phoneNumber: 'String',
           customer: {
             create: {
@@ -25,7 +25,7 @@ export const standard = defineScenario<Prisma.CustomerPointOfContactCreateArgs>(
         data: {
           firstName: 'String',
           lastName: 'String',
-          email: 'String9226016',
+          email: 'String6418372',
           phoneNumber: 'String',
           customer: {
             create: {

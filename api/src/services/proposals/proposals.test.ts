@@ -31,13 +31,13 @@ describe('proposals', () => {
   scenario('creates a proposal', async () => {
     const result = await createProposal({
       input: {
-        proposalCode: 9956795,
+        proposalCode: 7385051,
         department: 'String',
         agency: 'String',
         title: 'String',
-        solicitationNumber: 7691982,
-        dueDate: '2024-02-21T01:12:59.583Z',
-        questionsDueDate: '2024-02-21T01:12:59.583Z',
+        solicitationNumber: 507205,
+        dueDate: '2024-03-30T16:15:00.820Z',
+        questionsDueDate: '2024-03-30T16:15:00.820Z',
         sourceOfRfp: 'String',
         naics: 'String',
         setAside: true,
@@ -45,18 +45,18 @@ describe('proposals', () => {
         competition: 'String',
         specialSkills: 'String',
         clearenceRequirements: 'String',
-        custonmerId: 8197599,
+        custonmerId: 9870620,
       },
     })
 
-    expect(result.proposalCode).toEqual(9956795)
+    expect(result.proposalCode).toEqual(7385051)
     expect(result.department).toEqual('String')
     expect(result.agency).toEqual('String')
     expect(result.title).toEqual('String')
-    expect(result.solicitationNumber).toEqual(7691982)
-    expect(result.dueDate).toEqual(new Date('2024-02-21T01:12:59.583Z'))
+    expect(result.solicitationNumber).toEqual(507205)
+    expect(result.dueDate).toEqual(new Date('2024-03-30T16:15:00.820Z'))
     expect(result.questionsDueDate).toEqual(
-      new Date('2024-02-21T01:12:59.583Z')
+      new Date('2024-03-30T16:15:00.820Z')
     )
     expect(result.sourceOfRfp).toEqual('String')
     expect(result.naics).toEqual('String')
@@ -65,7 +65,7 @@ describe('proposals', () => {
     expect(result.competition).toEqual('String')
     expect(result.specialSkills).toEqual('String')
     expect(result.clearenceRequirements).toEqual('String')
-    expect(result.custonmerId).toEqual(8197599)
+    expect(result.custonmerId).toEqual(9870620)
   })
 
   scenario('updates a proposal', async (scenario: StandardScenario) => {
@@ -74,10 +74,10 @@ describe('proposals', () => {
     })) as Proposal
     const result = await updateProposal({
       id: original.id,
-      input: { proposalCode: 6138682 },
+      input: { proposalCode: 6711077 },
     })
 
-    expect(result.proposalCode).toEqual(6138682)
+    expect(result.proposalCode).toEqual(6711077)
   })
 
   scenario('deletes a proposal', async (scenario: StandardScenario) => {

@@ -6,7 +6,7 @@ export const standard = defineScenario<Prisma.CertificateCreateArgs>({
     one: {
       data: {
         description: 'String',
-        expirationDate: '2024-02-21T01:10:07.168Z',
+        expirationDate: '2024-03-30T16:11:25.917Z',
         Company: {
           create: {
             companyName: 'String',
@@ -23,7 +23,7 @@ export const standard = defineScenario<Prisma.CertificateCreateArgs>({
     two: {
       data: {
         description: 'String',
-        expirationDate: '2024-02-21T01:10:07.168Z',
+        expirationDate: '2024-03-30T16:11:25.917Z',
         Company: {
           create: {
             companyName: 'String',

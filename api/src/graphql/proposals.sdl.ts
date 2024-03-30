@@ -1,7 +1,7 @@
 export const schema = gql`
   type Proposal {
     id: Int!
-    activities: [ProposalActivitity]!
+    activities: [ProposalActivity]!
     proposalCode: Int!
     department: String!
     agency: String!

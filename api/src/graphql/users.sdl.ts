@@ -2,12 +2,19 @@ export const schema = gql`
   type User {
     id: Int!
     email: String!
-    company: Company!
-    companyId: Int!
+    company: Company
+    companyId: Int
+    roles: [Role]!
     hashedPassword: String!
     salt: String!
     resetToken: String
     resetTokenExpiresAt: DateTime
+  }
+
+  enum Role {
+    ADMIN
+    USER
+    POC
   }
 
   type Query {
@@ -17,7 +24,8 @@ export const schema = gql`
 
   input CreateUserInput {
     email: String!
-    companyId: Int!
+    companyId: Int
+    roles: [Role]!
     hashedPassword: String!
     salt: String!
     resetToken: String
@@ -27,6 +35,7 @@ export const schema = gql`
   input UpdateUserInput {
     email: String
     companyId: Int
+    roles: [Role]!
     hashedPassword: String
     salt: String
     resetToken: String

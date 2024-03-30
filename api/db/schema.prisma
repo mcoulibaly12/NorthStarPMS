@@ -65,8 +65,6 @@ model User {
   resetToken          String?
   resetTokenExpiresAt DateTime?
 }
-
-// EVERYTHING BELOW HAS NOT BEEN MIGRATED YET
 model Customer {
   id                  Int               @id @default(autoincrement())
   title               String
@@ -89,7 +87,7 @@ model CustomerPointOfContact {
 
 model Proposal {
   id                    Int                   @id @default(autoincrement())
-  activities            ProposalActivitity[]
+  activities            ProposalActivity[]
   proposalCode          Int                   @unique
   department            String
   agency                String
@@ -108,7 +106,7 @@ model Proposal {
   custonmerId           Int                   @unique
 }
 
-model ProposalActivitity {
+model ProposalActivity {
   id                  Int               @id @default(autoincrement())
   description         String
   proposalId          Int
