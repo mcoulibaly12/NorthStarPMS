@@ -1,4 +1,4 @@
-import { Container, Row, Col, Button, Modal, Form } from 'react-bootstrap'
+import { Container, Row, Col, Button } from 'react-bootstrap'
 
 import { navigate, routes, useParams } from '@redwoodjs/router'
 import { Metadata } from '@redwoodjs/web'
@@ -87,7 +87,7 @@ const DashboardPage = () => {
             Create an organization or ask your administrator to add you to their
             organization
           </p>
-          <Button onClick={() => navigate(routes.newCompany())}>
+          <Button onClick={() => navigate(routes.newCompany({ id: userId }))}>
             Create an organization
           </Button>
         </div>

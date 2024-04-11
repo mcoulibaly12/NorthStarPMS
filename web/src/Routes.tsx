@@ -18,7 +18,7 @@ const Routes = () => {
   return (
     <Router useAuth={useAuth}>
       <PrivateSet unauthenticated="home" wrap={DashboardLayout}>
-        <Route path="/dashboard" page={DashboardPage} name="dashboard" />
+        <Route path="/dashboard/{id:Int}" page={DashboardPage} name="dashboard" />
         <Route path="/writing" page={WritingPage} name="writing" />
         <Route path="/submission" page={SubmissionPage} name="submission" />
         <Route path="/review" page={ReviewPage} name="review" />

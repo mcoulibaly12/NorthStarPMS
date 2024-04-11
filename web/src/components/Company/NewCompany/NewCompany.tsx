@@ -1,12 +1,11 @@
 import type { CreateCompanyInput } from 'types/graphql'
 
-import { navigate, routes } from '@redwoodjs/router'
+import { navigate, routes, useParams } from '@redwoodjs/router'
 import { useMutation } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
 
 import CompanyForm from 'src/components/Company/CompanyForm'
-// TODO: Need to associate at least one user to the new company (will have to do this server side as well)
-// TODO: Associate an admin with the new company, this will be the creator of the company by default
+
 const CREATE_COMPANY_MUTATION = gql`
   mutation CreateCompanyMutation($input: CreateCompanyInput!) {
     createCompany(input: $input) {
@@ -15,14 +14,24 @@ const CREATE_COMPANY_MUTATION = gql`
   }
 `
 
+const UPDATE_USER_MUTATION = gql`
+  mutation EditUserMutation($input: UpdateUserInput!, $id: Int!) {
+    updateUser(id: $id, input: $input) {
+      id
+    }
+  }
+`
+
 const NewCompany = () => {
+  const { id } = useParams()
+  const userId = parseInt(id, 10)
+
   const [createCompany, { loading, error }] = useMutation(
     CREATE_COMPANY_MUTATION,
     {
       onCompleted: () => {
         toast.success('Company created')
-        // TODO: route back to the dashbaord
-        navigate(routes.companies())
+        navigate(routes.dashboard())
       },
       onError: (error) => {
         toast.error(error.message)
@@ -30,8 +39,17 @@ const NewCompany = () => {
     }
   )
 
-  const onSave = (input: CreateCompanyInput) => {
-    createCompany({ variables: { input } })
+  const [updateUser] = useMutation(UPDATE_USER_MUTATION)
+
+  const onSave = async (input: CreateCompanyInput) => {
+    const company = await createCompany({ variables: { input } })
+
+    const companyId = company.data.createCompany.id
+
+    // TODO: Figure out whats wrong with this mutation call
+    updateUser({
+      variables: { id: userId, input: { companyId, isAdmin: true } },
+    })
   }
 
   return (

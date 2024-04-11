@@ -4,8 +4,6 @@ import { Container, Nav } from 'react-bootstrap'
 
 import { Metadata } from '@redwoodjs/web'
 
-import { Header } from '../../components/rootLayout/Header'
-
 import { CompanySection } from './components/CompanySection'
 import { CriteriaSection } from './components/CriteriaSection'
 import { CustomersSection } from './components/CustomersSection'
@@ -39,7 +37,6 @@ const SettingsPage = () => {
   return (
     <Container fluid>
       <Metadata title="Settings" description="Settings page" />
-      <Header />
 
       {/* Settings menu options */}
       <Nav

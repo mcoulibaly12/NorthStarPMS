@@ -13,6 +13,7 @@ import { Link, navigate, routes } from '@redwoodjs/router'
 import { Metadata } from '@redwoodjs/web'
 import { toast, Toaster } from '@redwoodjs/web/toast'
 
+// TODO: update logic not that I added id to the route
 import { useAuth } from 'src/auth'
 
 const SignupPage = () => {

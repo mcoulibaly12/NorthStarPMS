@@ -4,6 +4,8 @@ export const schema = gql`
     email: String!
     company: Company
     companyId: Int
+    isAdmin: Boolean!
+    adminCompanyId: Int
     roles: [Role]!
     hashedPassword: String!
     salt: String!
@@ -25,7 +27,9 @@ export const schema = gql`
   input CreateUserInput {
     email: String!
     companyId: Int
-    roles: [Role]!
+    isAdmin: Boolean!
+    adminCompanyId: Int
+    roles: [Role]
     hashedPassword: String!
     salt: String!
     resetToken: String
@@ -35,7 +39,9 @@ export const schema = gql`
   input UpdateUserInput {
     email: String
     companyId: Int
-    roles: [Role]!
+    isAdmin: Boolean
+    adminCompanyId: Int
+    roles: [Role]
     hashedPassword: String
     salt: String
     resetToken: String
