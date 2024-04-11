@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useRef } from 'react'
 import { useEffect } from 'react'
 
 import {
@@ -17,19 +17,12 @@ import { useAuth } from 'src/auth'
 
 const LoginPage = () => {
   const { isAuthenticated, logIn, currentUser } = useAuth()
-  const [userId, setUserId] = useState(null)
-
-  useEffect(() => {
-    if (currentUser) {
-      setUserId(currentUser.id)
-    }
-  }, [currentUser])
 
   useEffect(() => {
     if (isAuthenticated) {
-      navigate(routes.dashboard({ id: userId }))
+      navigate(routes.dashboard({ id: currentUser?.id }))
     }
-  }, [isAuthenticated, userId])
+  }, [currentUser?.id, isAuthenticated])
 
   const emailRef = useRef<HTMLInputElement>(null)
   useEffect(() => {
