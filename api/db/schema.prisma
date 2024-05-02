@@ -105,7 +105,7 @@ model Proposal {
   competition           String[]
   specialSkills         String
   clearenceRequirements String
-  custonmerId           Int                   @unique
+  customerId           Int                   @unique
 }
 
 model ProposalActivity {

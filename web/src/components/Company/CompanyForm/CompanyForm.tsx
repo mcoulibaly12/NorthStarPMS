@@ -19,7 +19,7 @@ interface CompanyFormProps {
   error: RWGqlError
   loading: boolean
 }
-
+// TODO: Lets fine tune this
 const CompanyForm = (props: CompanyFormProps) => {
   const onSubmit = (data: FormCompany) => {
     props.onSave(data, props?.company?.id)

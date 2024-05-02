@@ -24,7 +24,6 @@ export const handler = async (
     // address in a toast message so the user will know it worked and where
     // to look for the email.
     handler: (user) => {
-      // TODO: send reset password email
       return user
     },
 
@@ -129,6 +128,7 @@ export const handler = async (
           email: username,
           hashedPassword: hashedPassword,
           salt: salt,
+          isAdmin: false,
         },
       })
     },
@@ -137,8 +137,6 @@ export const handler = async (
     // password is valid, otherwise throw a `PasswordValidationError`.
     // Import the error along with `DbAuthHandler` from `@redwoodjs/api` above.
     passwordValidation: (_password) => {
-      // TODO: need to figure out what criteria makes a valid password
-      // Throw PasswordValidationError if it is invalid
       return true
     },
 

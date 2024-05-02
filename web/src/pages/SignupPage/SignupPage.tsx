@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useRef } from 'react'
 import { useEffect } from 'react'
 
 import {
@@ -13,24 +13,16 @@ import { Link, navigate, routes } from '@redwoodjs/router'
 import { Metadata } from '@redwoodjs/web'
 import { toast, Toaster } from '@redwoodjs/web/toast'
 
-// TODO: update logic not that I added id to the route
 import { useAuth } from 'src/auth'
 
 const SignupPage = () => {
   const { isAuthenticated, signUp, currentUser } = useAuth()
-  const [userId, setUserId] = useState(null)
-
-  useEffect(() => {
-    if (currentUser) {
-      setUserId(currentUser.id)
-    }
-  }, [currentUser])
 
   useEffect(() => {
     if (isAuthenticated) {
-      navigate(routes.dashboard({ id: userId }))
+      navigate(routes.dashboard({ id: currentUser.id }))
     }
-  }, [isAuthenticated, userId])
+  }, [isAuthenticated, currentUser])
 
   // focus on email box on page load
   const emailRef = useRef<HTMLInputElement>(null)
@@ -55,7 +47,7 @@ const SignupPage = () => {
     } else if (response.error) {
       toast.error(response.error)
     } else {
-      // user is signed in automatically
+      // user is navigated to the dashboard
       toast.success('Welcome!')
     }
   }

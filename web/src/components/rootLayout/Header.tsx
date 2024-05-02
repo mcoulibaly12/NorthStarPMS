@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { Navbar, Nav, Container } from 'react-bootstrap'
 import {
@@ -11,12 +11,19 @@ import {
 import { useAuth } from 'src/auth'
 
 export function Header() {
-  const { isAuthenticated, logOut } = useAuth()
+  const { isAuthenticated, logOut, currentUser } = useAuth()
+  const [userId, setUserId] = useState(0)
+
+  useEffect(() => {
+    if (currentUser) {
+      setUserId(currentUser.id)
+    }
+  }, [currentUser])
 
   return (
     <Navbar expand="lg" className="justify-content-between">
       <Container fluid>
-        <Navbar.Brand href="/dashboard">NorthStar PMS</Navbar.Brand>
+        <Navbar.Brand href={`/dashboard/${userId}`}>NorthStar PMS</Navbar.Brand>
         <Nav
           className="ml-auto"
           style={{
